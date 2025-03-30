@@ -12,14 +12,14 @@ namespace Project.DAL.Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext()
+        public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
         {
             
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=.;Database=MVCProject;Trusted_Connection=true;");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server=.;Database=MVCProject;Trusted_Connection=true;");
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.ApplyConfiguration<Department>(new DepartmentConfigurations());

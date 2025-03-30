@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Project.DAL.Data;
 using Project.DAL.Data.Repositories.Interfaces;
 
@@ -11,7 +12,10 @@ namespace Project.PL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<AppDbContext>(); // Life Time Per Request & This allows Dependency Injectoin for AppDBContext
+            //builder.Services.AddScoped<AppDbContext>(); // Life Time Per Request & This allows Dependency Injectoin for AppDBContext
+            builder.Services.AddDbContext<AppDbContext>(options => 
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+            ));
 
 
             var app = builder.Build();

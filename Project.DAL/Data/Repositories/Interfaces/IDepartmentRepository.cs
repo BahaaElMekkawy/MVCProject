@@ -9,7 +9,7 @@ namespace Project.DAL.Data.Repositories.Interfaces
 {
     public interface IDepartmentRepository
     {
-        IEnumerable<Department> GetAll();
+        IEnumerable<Department> GetAll(bool withtracking);
         Department GetById(int id);
         int Update(Department entity); // return type is intger for how many rows affected
         int Delete(Department entity);
