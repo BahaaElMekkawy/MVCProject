@@ -12,6 +12,10 @@ namespace Project.DAL.Data
 {
     public class AppDbContext : DbContext
     {
+        public AppDbContext()
+        {
+            
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=.;Database=MVCProject;Trusted_Connection=true;");

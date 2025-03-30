@@ -1,3 +1,6 @@
+using Project.DAL.Data;
+using Project.DAL.Data.Repositories.Interfaces;
+
 namespace Project.PL
 {
     public class Program
@@ -8,6 +11,8 @@ namespace Project.PL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<AppDbContext>(); // Life Time Per Request & This allows Dependency Injectoin for AppDBContext
+
 
             var app = builder.Build();
 
@@ -31,6 +36,8 @@ namespace Project.PL
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+
+
         }
     }
 }
